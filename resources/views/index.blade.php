@@ -11,4 +11,10 @@
     @empty
         <div>List is empty.</div>
     @endforelse
+
+    @if ($tasks->count())
+        <nav>
+            {{ $tasks->links() }}
+        </nav>
+    @endif
 @endsection
