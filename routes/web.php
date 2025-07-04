@@ -57,6 +57,15 @@ Route::put("/tasks/{task}", function(Task $task, TaskRequest $request) {
 })->name("tasks.update");
 
 
+// Delete
+Route::delete("/tasks/{task}", function(Task $task){
+    $task->delete();
+
+    return redirect()->route('tasks.index')
+        ->with('success','Task Deleted successfully!');
+})->name("tasks.destroy");
+
+
 // 4. Fallback
 Route::fallback(function(){
     return "There is no such page.";
