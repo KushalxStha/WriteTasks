@@ -2,9 +2,7 @@
 
 @section('style')
 <style>
-    .err-msg{
-        color: red;
-    }
+
 </style>
 @endsection
 
@@ -20,7 +18,7 @@
         <label for="title">Title</label>
         <input type="text" name="title" id="title" value="{{ $task->title ?? old('title') }}">
         @error('title')
-            <p class="err-msg text-red-500">{{ $message }}</p>
+            <p class="text-red-500">{{ $message }}</p>
         @enderror
     </div>
 
@@ -28,7 +26,7 @@
         <label for="description">Description</label>
         <textarea type="text" name="description" id="description" rows="5">{{ $task->description ?? old('description') }}</textarea>
         @error('description')
-            <p class="err-msg">{{ $message }}</p>
+            <p class="text-red-500">{{ $message }}</p>
         @enderror
     </div>
 
@@ -36,7 +34,7 @@
         <label for="long_description">Title</label>
         <textarea type="text" name="long_description" id="long_description" rows="10">{{ $task->long_description ?? old('long_description') }}</textarea>
         @error('long_description')
-            <p class="err-msg">{{ $message }}</p>
+            <p class="text-red-500">{{ $message }}</p>
         @enderror
     </div>
 
