@@ -15,7 +15,7 @@
     @endif
 
     <p class="mb-4 text-sm text-slate-500">
-    Created {{ $task->created_at->diffForHumans() }} . Updated {{ $task->updated_at->diffForHumans() }}
+        Created {{ $task->created_at->diffForHumans() }} . Updated {{ $task->updated_at->diffForHumans() }}
     </p>
 
     <p class="mb-4">
@@ -27,20 +27,19 @@
     </p>
 
     <div class="flex gap-2">
-        <a href="{{ route('tasks.edit',['task'=> $task]) }}"
-        class="btn">Edit</a>
+        <a href="{{ route('tasks.edit', ['task' => $task]) }}" class="btn">Edit</a>
 
-        <form method="POST" action="{{ route('tasks.toggle-complete', ['task'=> $task]) }}">
-        @csrf
-        @method('PUT')
-        <button class="btn cursor-pointer" type="submit">
-            Mark as {{ $task->completed ? 'not complete': 'complete' }}
-        </button>
+        <form method="POST" action="{{ route('tasks.toggle-complete', ['task' => $task]) }}">
+            @csrf
+            @method('PUT')
+            <button class="btn cursor-pointer" type="submit">
+                Mark as {{ $task->completed ? 'not complete' : 'complete' }}
+            </button>
         </form>
 
-        <form action="{{ route("tasks.destroy",['task'=> $task]) }}" method="POST">
-        @csrf
-        @method('DELETE')
+        <form action="{{ route("tasks.destroy", ['task' => $task]) }}" method="POST">
+            @csrf
+            @method('DELETE')
             <button class="btn cursor-pointer" type="submit">Delete</button>
         </form>
     </div>
